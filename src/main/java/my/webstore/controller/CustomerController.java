@@ -11,7 +11,7 @@ public class CustomerController {
 
     @Autowired
     CustomerService customerService;
-    
+
     @RequestMapping("customers")
     public String list(Model model) {
         model.addAttribute("customers", customerService.getAllCustomers());

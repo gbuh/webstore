@@ -30,5 +30,6 @@
             </c:forEach>
         </div>
     </section>
+    <a href="http://www.google.com" class="btn btn-primary">Visit Google</a>
 </body>
 </html>
