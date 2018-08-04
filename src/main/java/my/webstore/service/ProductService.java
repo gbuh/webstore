@@ -16,4 +16,7 @@ public interface ProductService {
     List<Product> getProductsByFilter(Map<String, List<String>> filterParams);
 
     void updateAllStock();
+
+    void addProduct(Product product);
+
 }

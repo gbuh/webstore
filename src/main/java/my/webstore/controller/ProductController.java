@@ -1,12 +1,15 @@
 package my.webstore.controller;
 
+import my.webstore.domain.Product;
 import my.webstore.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -49,6 +52,19 @@ public class ProductController {
     @RequestMapping("/update/stock")
     public String updateStock(Model model) {
         productService.updateAllStock();
+        return "redirect:/market/products";
+    }
+
+    @RequestMapping(value = "/products/add", method = RequestMethod.GET)
+    public String getAddNewProductForm(Model model) {
+        Product newProduct = new Product();
+        model.addAttribute("newProduct", newProduct);
+        return "addProduct";
+    }
+
+    @RequestMapping(value = "/products/add", method = RequestMethod.POST)
+    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct) {
+        productService.addProduct(newProduct);
         return "redirect:/market/products";
     }
 }
