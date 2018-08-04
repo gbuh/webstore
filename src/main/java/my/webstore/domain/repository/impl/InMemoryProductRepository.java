@@ -28,6 +28,15 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     @Override
+    public Product getProductById(String productId) {
+        String SQL = "SELECT * FROM PRODUCTS WHERE ID =:id";
+        Map<String, Object> params = new HashMap<>();
+        params.put("id", productId);
+
+        return jdbcTemplate.queryForObject(SQL, params, new ProductMapper());
+    }
+
+    @Override
     public List<Product> getProductByCategory(String category) {
         String SQL = "SELECT * FROM PRODUCTS WHERE CATEGORY =:category";
         Map<String, Object> params = new HashMap<>();
@@ -38,7 +47,8 @@ public class InMemoryProductRepository implements ProductRepository {
 
     @Override
     public List<Product> getProductsByFilter(Map<String, List<String>> filterParams) {
-        String SQL = "SELECT * FROM PRODUCTS WHERE CATEGORY IN (:categories) AND MANUFACTURER IN (:brands)";
+        String SQL =
+                "SELECT * FROM PRODUCTS WHERE CATEGORY IN (:categories) AND MANUFACTURER IN (:brands)";
 
         return jdbcTemplate.query(SQL, filterParams, new ProductMapper());
     }
@@ -60,6 +70,7 @@ public class InMemoryProductRepository implements ProductRepository {
             product.setProductId(rs.getString("ID"));
             product.setName(rs.getString("NAME"));
             product.setDescription(rs.getString("DESCRIPTION"));
+            product.setUnitPrice(rs.getBigDecimal("UNIT_PRICE"));
             product.setManufacturer(rs.getString("MANUFACTURER"));
             product.setCategory(rs.getString("CATEGORY"));
             product.setCondition(rs.getString("CONDITION"));
