@@ -13,7 +13,6 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan("my.webstore")
 public class RootApplicationContextConfig {
-
     @Bean
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();

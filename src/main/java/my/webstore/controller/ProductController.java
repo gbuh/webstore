@@ -18,7 +18,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/market")
 public class ProductController {
-
     @Autowired
     private ProductService productService;
 
@@ -56,9 +55,12 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products/add", method = RequestMethod.GET)
+/*
     public String getAddNewProductForm(Model model) {
         Product newProduct = new Product();
         model.addAttribute("newProduct", newProduct);
+*/
+        public String getAddNewProductForm(@ModelAttribute("newProduct") Product newProduct) {
         return "addProduct";
     }
 

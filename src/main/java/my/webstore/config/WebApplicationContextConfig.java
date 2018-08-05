@@ -15,7 +15,6 @@ import org.springframework.web.util.UrlPathHelper;
 @EnableWebMvc
 @ComponentScan("my.webstore")
 public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
-
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();

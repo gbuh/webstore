@@ -15,7 +15,6 @@ import java.util.Map;
 
 @Repository
 public class InMemoryProductRepository implements ProductRepository {
-
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
 
@@ -84,7 +83,6 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     private static final class ProductMapper implements RowMapper<Product> {
-
         @Override
         public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
             Product product = new Product();

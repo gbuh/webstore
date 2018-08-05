@@ -15,7 +15,6 @@ import java.util.Map;
 
 @Repository
 public class InMemoryCustomerRepository implements CustomerRepository {
-
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
 
@@ -37,7 +36,6 @@ public class InMemoryCustomerRepository implements CustomerRepository {
     }
 
     private static final class CustomerMapper implements RowMapper<Customer> {
-
         @Override
         public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
             Customer customer = new Customer();
