@@ -11,15 +11,21 @@
     <section>
         <div class="jumbotron">
             <div class="container">
-                <h1><spring:message code="addProduct.section1" /></h1>
-                <p><spring:message code="addProduct.section1p" /></p>
+                <h1>
+                    <spring:message code="addProduct.section1" />
+                </h1>
+                <p>
+                    <spring:message code="addProduct.section1p" />
+                </p>
             </div>
         </div>
     </section>
     <section class="container">
-        <form:form method="POST" modelAttribute="newProduct" class="form-horizontal">
+        <form:form method="POST" modelAttribute="newProduct" class="form-horizontal" enctype="multipart-form-data">
             <fieldset>
-                <legend><spring:message code="addProduct.form.section2legend" /></legend>
+                <legend>
+                    <spring:message code="addProduct.form.section2legend" />
+                </legend>
                 <div class="form-group">
                     <label class="control-label col-lg-2 col-lg-2" for="productId"><spring:message
                             code="addProduct.form.productId.label" /></label>
@@ -79,6 +85,14 @@
                         <spring:message code="addProduct.form.condition2.label" />
                         <form:radiobutton path="condition" value="Refurbished" />
                         <spring:message code="addProduct.form.condition3.label" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-2" for="productImage"> <spring:message
+                                code="addProduct.form.productImage.label" />
+                        </label>
+                        <div class="col-lg-10">
+                            <form:input id="productImage" path="productImage" type="file" class="form:input-large" />
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
