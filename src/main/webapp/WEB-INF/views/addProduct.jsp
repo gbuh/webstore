@@ -86,7 +86,8 @@
                         <form:radiobutton path="condition" value="Refurbished" />
                         <spring:message code="addProduct.form.condition3.label" />
                     </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label class="control-label col-lg-2" for="productImage"> <spring:message
                                 code="addProduct.form.productImage.label" />
                         </label>
@@ -94,7 +95,6 @@
                             <form:input id="productImage" path="productImage" type="file" class="form:input-large" />
                         </div>
                     </div>
-                </div>
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
                         <input type="submit" id="btnAdd" class="btn btn-primary" value="Add" />
