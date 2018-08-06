@@ -1,14 +1,20 @@
 package my.webstore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlRootElement
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 2533558479841767112L;
 
+    @JsonIgnore
     private MultipartFile productImage;
 
     private String productId;
@@ -33,6 +39,7 @@ public class Product implements Serializable {
         this.unitPrice = unitPrice;
     }
 
+    @XmlTransient
     public MultipartFile getProductImage() {
         return productImage;
     }
