@@ -36,7 +36,7 @@ public class InMemoryProductRepository implements ProductRepository {
     }
 
     @Override
-    public List<Product> getProductByCategory(String category) {
+    public List<Product> getProductsByCategory(String category) {
         String SQL = "SELECT * FROM PRODUCTS WHERE CATEGORY =:category";
         Map<String, Object> params = new HashMap<>();
         params.put("category", category);
