@@ -1,5 +1,6 @@
 package my.webstore.config;
 
+import my.webstore.domain.Customer;
 import my.webstore.domain.Product;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -81,7 +82,7 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
     @Bean
     public MarshallingView xmlView() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-        marshaller.setClassesToBeBound(Product.class);
+        marshaller.setClassesToBeBound(Product.class, Customer.class);
         MarshallingView xmlView = new MarshallingView(marshaller);
         return xmlView;
     }

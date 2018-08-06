@@ -2,6 +2,9 @@ package my.webstore.domain;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 8726416437642504747L;
