@@ -1,0 +1,28 @@
+2018-08-0719:28:30 INFO  DispatcherServlet:489 - FrameworkServlet 'dispatcher': initialization started
+2018-08-0719:28:30 INFO  AnnotationConfigWebApplicationContext:581 - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 07 19:28:30 MSK 2018]; root of context hierarchy
+2018-08-0719:28:30 INFO  AnnotationConfigWebApplicationContext:207 - Registering annotated classes: [class my.webstore.config.RootApplicationContextConfig]
+2018-08-0719:28:32 INFO  EmbeddedDatabaseFactory:185 - Starting embedded database: url='jdbc:hsqldb:mem:testdb', username='sa'
+2018-08-0719:28:33 INFO  ScriptUtils:444 - Executing SQL script from class path resource [db/sql/create-table.sql]
+2018-08-0719:28:33 INFO  ScriptUtils:510 - Executed SQL script from class path resource [db/sql/create-table.sql] in 13 ms.
+2018-08-0719:28:33 INFO  ScriptUtils:444 - Executing SQL script from class path resource [db/sql/insert-data.sql]
+2018-08-0719:28:33 INFO  ScriptUtils:510 - Executed SQL script from class path resource [db/sql/insert-data.sql] in 4 ms.
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/customers]}" onto public java.lang.String my.webstore.controller.CustomerController.list(org.springframework.ui.Model)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/welcome/greeting]}" onto public java.lang.String my.webstore.controller.HomeController.greeting()
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/]}" onto public java.lang.String my.webstore.controller.HomeController.welcome(org.springframework.ui.Model,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/market/products]}" onto public java.lang.String my.webstore.controller.ProductController.list(org.springframework.ui.Model)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/market/products/add],methods=[POST]}" onto public java.lang.String my.webstore.controller.ProductController.processAddNewProductForm(my.webstore.domain.Product,org.springframework.validation.BindingResult,javax.servlet.http.HttpServletRequest)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/market/products/filter/{params}]}" onto public java.lang.String my.webstore.controller.ProductController.getProductsByFilter(java.util.Map<java.lang.String, java.util.List<java.lang.String>>,org.springframework.ui.Model)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/market/products/add],methods=[GET]}" onto public java.lang.String my.webstore.controller.ProductController.getAddNewProductForm(my.webstore.domain.Product)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/market/products/{category}]}" onto public java.lang.String my.webstore.controller.ProductController.getProductsByCategory(org.springframework.ui.Model,java.lang.String)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/market/product]}" onto public java.lang.String my.webstore.controller.ProductController.getProductById(java.lang.String,org.springframework.ui.Model)
+2018-08-0719:28:33 INFO  RequestMappingHandlerMapping:537 - Mapped "{[/market/update/stock]}" onto public java.lang.String my.webstore.controller.ProductController.updateStock(org.springframework.ui.Model)
+2018-08-0719:28:34 INFO  SimpleUrlHandlerMapping:341 - Mapped URL path [/img/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-08-0719:28:34 INFO  SimpleUrlHandlerMapping:341 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2018-08-0719:28:35 INFO  RequestMappingHandlerAdapter:534 - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Aug 07 19:28:30 MSK 2018]; root of context hierarchy
+2018-08-0719:28:35 INFO  DispatcherServlet:508 - FrameworkServlet 'dispatcher': initialization completed in 5436 ms
+2018-08-0719:29:13 INFO  ProcessingTimeLogInterceptor:30 - 149 millisecond taken to process the request http://localhost/webstore/market/products.
+2018-08-0719:29:33 INFO  ProcessingTimeLogInterceptor:30 - 81 millisecond taken to process the request http://localhost/webstore/market/product?id=P1235.
+2018-08-0719:30:00 INFO  ProcessingTimeLogInterceptor:30 - 2 millisecond taken to process the request http://localhost/webstore/market/products.
+2018-08-0719:30:13 INFO  ProcessingTimeLogInterceptor:30 - 5 millisecond taken to process the request http://localhost/webstore/market/product?id=P1235.
+2018-08-0719:30:22 INFO  ProcessingTimeLogInterceptor:30 - 8 millisecond taken to process the request http://localhost/webstore/market/products/Laptop.
+2018-08-0719:30:36 INFO  ProcessingTimeLogInterceptor:30 - 16 millisecond taken to process the request http://localhost/webstore/market/products/add.
