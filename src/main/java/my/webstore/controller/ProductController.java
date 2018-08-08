@@ -45,6 +45,11 @@ public class ProductController {
         return "product";
     }
 
+    @RequestMapping("/products/invalidPromoCode")
+    public String invalidPomoCode() {
+        return "invalidPromoCode";
+    }
+    
     @RequestMapping("products/{category}")
     public String getProductsByCategory(Model model, @PathVariable("category") String category) {
         List<Product> products = productService.getProductsByCategory(category);
