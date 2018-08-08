@@ -11,7 +11,9 @@
 <body>
     <section>
         <div class="pull-right" style="padding-right: 50px">
-            <a href="?language=en"><spring:message code="internationalisation.switch.en" /></a>|<a href="?language=ru"><spring:message code="internationalisation.switch.ru" /></a>
+            <a href="?language=en"><spring:message code="internationalisation.switch.en" /></a>|<a href="?language=ru"><spring:message
+                    code="internationalisation.switch.ru" /></a> <a href="<c:url value="/logout"/>"><spring:message
+                    code="logout" /></a>
         </div>
     </section>
     <section>
@@ -103,7 +105,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
-                        <input type="submit" id="btnAdd" class="btn btn-primary" value="<spring:message code="addProduct.form.addButton.label" />" />
+                        <input type="submit" id="btnAdd" class="btn btn-primary"
+                            value="<spring:message code="addProduct.form.addButton.label" />" />
                     </div>
                 </div>
             </fieldset>

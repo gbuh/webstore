@@ -10,7 +10,9 @@
 <body>
     <section>
         <div class="pull-right" style="padding-right: 50px">
-            <a href="?language=en"><spring:message code="internationalisation.switch.en" /></a>|<a href="?language=ru"><spring:message code="internationalisation.switch.ru" /></a>
+            <a href="?language=en"><spring:message code="internationalisation.switch.en" /></a>|<a href="?language=ru"><spring:message
+                    code="internationalisation.switch.ru" /></a> <a href="<c:url value="/logout"/>"><spring:message
+                    code="logout" /></a>
         </div>
     </section>
     <section>
@@ -40,10 +42,10 @@
             </c:forEach>
         </div>
     </section>
-        <div>
+    <div>
         <p>
-            <a href="<spring:url value="/"/>" class="btn btn-default"> <span
-                class="glyphicon-info-sign glyphicon"></span> <spring:message code="customers.welcomeButton.label" />
+            <a href="<spring:url value="/"/>" class="btn btn-default"> <span class="glyphicon-info-sign glyphicon"></span>
+                <spring:message code="customers.welcomeButton.label" />
             </a>
         </p>
     </div>

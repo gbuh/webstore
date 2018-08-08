@@ -9,6 +9,13 @@
 </head>
 <body>
     <section>
+        <div class="pull-right" style="padding-right: 50px">
+            <a href="?id=${product.productId}&language=en"><spring:message code="internationalisation.switch.en" /></a>|<a href="?id=${product.productId}&language=ru"><spring:message
+                    code="internationalisation.switch.ru" /></a> <a href="<c:url value="/logout"/>"><spring:message
+                    code="logout" /></a>
+        </div>
+    </section>
+    <section>
         <div class="jumbotron">
             <div class="container">
                 <h1>
@@ -42,11 +49,9 @@
                 </h4>
                 <p>
                     <a href="<spring:url value="/market/products"/>" class="btn btn-default"> <span
-                        class="glyphicon-hand-left glyphicon"></span>
-                    <spring:message code="product.BackButton.label" />
+                        class="glyphicon-hand-left glyphicon"></span> <spring:message code="product.BackButton.label" />
                     </a> <a href="#" class="btn btn-warning btn-large"> <span class="glyphicon-shopping-cart glyphicon">
-                    </span>
-                    <spring:message code="product.OrderButton.label" />
+                    </span> <spring:message code="product.OrderButton.label" />
                     </a>
                 </p>
             </div>

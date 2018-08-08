@@ -15,7 +15,8 @@
     <section>
         <div class="pull-right" style="padding-right: 50px">
             <a href="?language=en"><spring:message code="internationalisation.switch.en" /></a>|<a href="?language=ru"><spring:message
-                    code="internationalisation.switch.ru" /></a>
+                    code="internationalisation.switch.ru" /></a> <a href="<c:url value="/logout"/>"><spring:message
+                    code="logout" /></a>
         </div>
     </section>
     <div class="jumbotron">
