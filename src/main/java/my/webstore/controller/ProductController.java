@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/market")
@@ -49,7 +50,7 @@ public class ProductController {
     public String invalidPomoCode() {
         return "invalidPromoCode";
     }
-    
+
     @RequestMapping("products/{category}")
     public String getProductsByCategory(Model model, @PathVariable("category") String category) {
         List<Product> products = productService.getProductsByCategory(category);
@@ -84,8 +85,11 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products/add", method = RequestMethod.POST)
-    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct,
+    public String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct,
             BindingResult result, HttpServletRequest request) {
+        if (result.hasErrors()) {
+            return "addProduct";
+        }
         String[] suppressedFields = result.getSuppressedFields();
         if (suppressedFields.length > 0) {
             throw new RuntimeException("Attempting to bind disallowed fields: "
