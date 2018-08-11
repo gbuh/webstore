@@ -100,7 +100,7 @@ public class ProductController {
         if (productImage != null && !productImage.isEmpty()) {
             try {
                 productImage.transferTo(new File(
-                        rootDirectory + "resources\\img" + new Product().getProductId() + ".png"));
+                        rootDirectory + "resources\\img\\" + newProduct.getProductId() + ".png"));
             } catch (Exception e) {
                 throw new RuntimeException("Product Image saving failed", e);
             }
