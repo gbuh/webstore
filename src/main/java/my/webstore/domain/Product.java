@@ -24,18 +24,28 @@ public class Product implements Serializable {
 
     @Pattern(regexp = "P[1-9][0-9]*", message = "{Pattern.Product.productId.validation}")
     private String productId;
+
     @Size(min = 4, max = 50, message = "{Size.Product.name.validation}")
     private String name;
+
     @Min(value = 0, message = "{Min.Product.unitPrice.validation}")
     @Digits(integer = 8, fraction = 2, message = "{Digits.Product.unitPrice.validation}")
     @NotNull(message = "{NotNull.Product.unitPrice.validation}")
     private BigDecimal unitPrice;
+
     private String description;
+
     private String manufacturer;
+
     private String category;
+
+    @Min(value = 0, message = "{Min.Product.unitInStock.validation}")
     private long unitsInStock;
+
     private long unitsInOrder;
+
     private boolean discontinued;
+
     private String condition;
 
     public Product() {

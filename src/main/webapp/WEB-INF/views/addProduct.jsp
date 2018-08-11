@@ -29,7 +29,7 @@
         </div>
     </section>
     <section class="container">
-        <form:form method="POST" modelAttribute="newProduct" class="form-horizontal" enctype="multipart-form-data">
+        <form:form method="POST" modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data">
             <form:errors path="*" cssClass="alert alert-danger" element="div" />
             <fieldset>
                 <legend>
@@ -78,6 +78,7 @@
                             code="addProduct.form.unitsInStock.label" /></label>
                     <div class="col-lg-10">
                         <form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large" />
+                        <form:errors path="unitsInStock" cssClass="text-danger" />
                     </div>
                 </div>
                 <div class="form-group">
