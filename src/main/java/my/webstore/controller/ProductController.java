@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.StringMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
@@ -87,9 +88,9 @@ public class ProductController {
     @RequestMapping(value = "/products/add", method = RequestMethod.POST)
     public String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct,
             BindingResult result, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            return "addProduct";
-        }
+//        if (result.hasErrors()) {
+//            return "addProduct";
+//        }
         String[] suppressedFields = result.getSuppressedFields();
         if (suppressedFields.length > 0) {
             throw new RuntimeException("Attempting to bind disallowed fields: "
