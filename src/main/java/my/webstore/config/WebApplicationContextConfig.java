@@ -4,6 +4,8 @@ import my.webstore.domain.Customer;
 import my.webstore.domain.Product;
 import my.webstore.interceptor.ProcessingTimeLogInterceptor;
 import my.webstore.interceptor.PromoCodeInterceptor;
+import my.webstore.validator.ProductValidator;
+import my.webstore.validator.UnitsInStockValidator;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -34,7 +36,9 @@ import org.springframework.web.servlet.view.xml.MarshallingView;
 import org.springframework.web.util.UrlPathHelper;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 @Configuration
 @EnableWebMvc
@@ -144,5 +148,14 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
         bean.setValidationMessageSource(messageSource());
         return bean;
+    }
+
+    @Bean
+    public ProductValidator productValidator() {
+        Set<Validator> springValidators = new HashSet<>();
+        springValidators.add(new UnitsInStockValidator());
+        ProductValidator productValidator = new ProductValidator();
+        productValidator.setSpringValidators(springValidators);
+        return productValidator;
     }
 }
