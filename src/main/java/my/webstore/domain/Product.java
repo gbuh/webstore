@@ -1,6 +1,8 @@
 package my.webstore.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import my.webstore.validator.Category;
+import my.webstore.validator.ProductId;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
@@ -23,6 +25,7 @@ public class Product implements Serializable {
     private MultipartFile productImage;
 
     @Pattern(regexp = "P[1-9][0-9]*", message = "{Pattern.Product.productId.validation}")
+    @ProductId
     private String productId;
 
     @Size(min = 4, max = 50, message = "{Size.Product.name.validation}")
@@ -37,6 +40,7 @@ public class Product implements Serializable {
 
     private String manufacturer;
 
+    @Category
     private String category;
 
     @Min(value = 0, message = "{Min.Product.unitInStock.validation}")
