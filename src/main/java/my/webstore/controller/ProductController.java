@@ -5,7 +5,6 @@ import my.webstore.exception.NoProductsFoundUnderCategoryException;
 import my.webstore.exception.ProductNotFoundException;
 import my.webstore.service.ProductService;
 import my.webstore.validator.ProductValidator;
-import my.webstore.validator.UnitsInStockValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,9 +35,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private UnitsInStockValidator unitsInStockValidator;
-    
     @Autowired
     private ProductValidator productValidator;
 
