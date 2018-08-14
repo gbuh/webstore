@@ -32,7 +32,7 @@ public class InMemoryCartRepository implements CartRepository {
         cartDto.getCartItems().stream().forEach(cartItemDto -> {
             Product productById = productService.getProductById(cartItemDto.getProductId());
             String INSERT_CART_ITEM_SQL =
-                    "INSERT INTO CART_ITEM(ID,PRODUCT_ID ,CART_ID,QUANTITY) VALUES (:id, :product_id, :cart_id, :quantity)";
+                    "INSERT INTO CART_ITEM(ID, PRODUCT_ID ,CART_ID, QUANTITY) VALUES (:id, :product_id, :cart_id, :quantity)";
             Map<String, Object> cartItemsParams = new HashMap<String, Object>();
             cartItemsParams.put("id", cartItemDto.getId());
             cartItemsParams.put("product_id", productById.getProductId());
@@ -43,7 +43,7 @@ public class InMemoryCartRepository implements CartRepository {
     }
 
     public Cart read(String id) {
-        String SQL = "SELECT * FROM CART WHERE ID = :id";
+        String SQL = "SELECT * FROM CART WHERE ID =:id";
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("id", id);
         CartMapper cartMapper = new CartMapper(jdbcTempleate, productService);
@@ -59,7 +59,7 @@ public class InMemoryCartRepository implements CartRepository {
         List<CartItemDto> cartItems = cartDto.getCartItems();
         for (CartItemDto cartItem : cartItems) {
             String SQL =
-                    "UPDATE CART_ITEM SET QUANTITY = :quantity, PRODUCT_ID = :productId WHERE ID = :id AND CART_ID = :cartId";
+                    "UPDATE CART_ITEM SET QUANTITY =:quantity, PRODUCT_ID =:productId WHERE ID =:id AND CART_ID =:cartId";
             Map<String, Object> params = new HashMap<String, Object>();
             params.put("id", cartItem.getId());
             params.put("quantity", cartItem.getQuantity());
@@ -71,8 +71,8 @@ public class InMemoryCartRepository implements CartRepository {
 
     @Override
     public void delete(String id) {
-        String SQL_DELETE_CART_ITEM = "DELETE FROM CART_ITEM WHERE CART_ID = :id";
-        String SQL_DELETE_CART = "DELETE FROM CART WHERE ID = :id";
+        String SQL_DELETE_CART_ITEM = "DELETE FROM CART_ITEM WHERE CART_ID =:id";
+        String SQL_DELETE_CART = "DELETE FROM CART WHERE ID =:id";
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("id", id);
         jdbcTempleate.update(SQL_DELETE_CART_ITEM, params);
@@ -100,7 +100,7 @@ public class InMemoryCartRepository implements CartRepository {
             cartItemsParams.put("id", cartId + productId);
             cartItemsParams.put("quantity", 1);
         } else {
-            SQL = "UPDATE CART_ITEM SET QUANTITY =:quantity WHERE CART_ID = :cartId AND PRODUCT_ID =:productId";
+            SQL = "UPDATE CART_ITEM SET QUANTITY =:quantity WHERE CART_ID =:cartId AND PRODUCT_ID =:productId";
             CartItem existingItem = cart.getItemByProductId(productId);
             cartItemsParams.put("id", existingItem.getId());
             cartItemsParams.put("quantity", existingItem.getQuantity() + 1);
@@ -113,7 +113,7 @@ public class InMemoryCartRepository implements CartRepository {
     @Override
     public void removeItem(String cartId, String productId) {
         String SQL_DELETE_CART_ITEM =
-                "DELETE FROM CART_ITEM WHERE PRODUCT_ID = :productId AND CART_ID =:id";
+                "DELETE FROM CART_ITEM WHERE PRODUCT_ID =:productId AND CART_ID =:id";
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("id", cartId);
         params.put("productId", productId);
