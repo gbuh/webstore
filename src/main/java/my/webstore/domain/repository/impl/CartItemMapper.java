@@ -22,5 +22,4 @@ public class CartItemMapper implements RowMapper<CartItem> {
         cartItem.setQuantity(rs.getInt("QUANTITY"));
         return cartItem;
     }
-
 }
