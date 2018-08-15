@@ -5,14 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text-html; charset=UTF-8">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="/webstore/resources/js/controllers.js"></script>
 <title><spring:message code="product.title" /></title>
 </head>
 <body>
     <section>
         <div class="pull-right" style="padding-right: 50px">
-            <a href="?id=${product.productId}&language=en"><spring:message code="internationalisation.switch.en" /></a>|<a href="?id=${product.productId}&language=ru"><spring:message
-                    code="internationalisation.switch.ru" /></a> <a href="<c:url value="/logout"/>"><spring:message
-                    code="logout" /></a>
+            <a href="?id=${product.productId}&language=en"><spring:message code="internationalisation.switch.en" /></a>|<a
+                href="?id=${product.productId}&language=ru"><spring:message code="internationalisation.switch.ru" /></a>
+            <a href="<c:url value="/logout"/>"><spring:message code="logout" /></a>
         </div>
     </section>
     <section>
@@ -24,7 +26,7 @@
             </div>
         </div>
     </section>
-    <section class="container">
+    <section class="container" ng-app="cartApp">
         <div class="row">
             <div class="col-md-5">
                 <img alt="img" style="width: 100%" src="<c:url value="/img/${product.productId}.png"></c:url>">
@@ -47,11 +49,14 @@
                 </p>
                 <h4>${product.unitPrice}<spring:message code="product.unitPriceCurrency.label" />
                 </h4>
-                <p>
+                <p ng-controller="cartCtrl">
                     <a href="<spring:url value="/market/products"/>" class="btn btn-default"> <span
                         class="glyphicon-hand-left glyphicon"></span> <spring:message code="product.BackButton.label" />
-                    </a> <a href="#" class="btn btn-warning btn-large"> <span class="glyphicon-shopping-cart glyphicon">
-                    </span> <spring:message code="product.OrderButton.label" />
+                    </a> <a href="#" class="btn btn-warning btn-large" ng-click="addToCart('${product.productId}')"> <span
+                        class="glyphicon-shopping-cart glyphicon"> </span> <spring:message
+                            code="product.OrderButton.label" />
+                    </a> <a href="<spring:url value="/cart" />" class="btn btn-default"> <span
+                        class="glyphicon-hand-right glyphicon"></span> <spring:message code="product.ViewCart.label" />
                     </a>
                 </p>
             </div>

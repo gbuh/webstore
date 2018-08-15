@@ -28,6 +28,9 @@
             <a href="<spring:url value="/market/products"/>" class="btn btn-default"> <span
                 class="glyphicon-info-sign glyphicon"></span> <spring:message code="welcome.productButton.label" />
             </a>
+            <a href="<spring:url value="/market/products/add"/>" class="btn btn-default"> <span
+                class="glyphicon-info-sign glyphicon"></span> <spring:message code="welcome.addProductButton.label" />
+            </a>
             <a href="<spring:url value="/customers"/>" class="btn btn-default"> <span
                 class="glyphicon-info-sign glyphicon"></span> <spring:message code="welcome.customerButton.label" />
             </a>
