@@ -39,10 +39,10 @@ public class InMemoryCustomerRepository implements CustomerRepository {
         @Override
         public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
             Customer customer = new Customer();
-            customer.setCustomerId(rs.getString("ID"));
+            //customer.setCustomerId(rs.getString("ID"));
             customer.setName(rs.getString("NAME"));
-            customer.setAddress(rs.getString("ADDRESS"));
-            customer.setNoOfOrdersMade(rs.getInt("NO_OF_ORDERS_MADE"));
+            //customer.setAddress(rs.getString("ADDRESS"));
+            //customer.setNoOfOrdersMade(rs.getInt("NO_OF_ORDERS_MADE"));
             return customer;
         }
     }
