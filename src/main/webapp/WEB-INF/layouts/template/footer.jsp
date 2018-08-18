@@ -1,1 +1,1 @@
-<p>&copy; Company 2018</p>
+<p>&copy; MyCompany 2018</p>
