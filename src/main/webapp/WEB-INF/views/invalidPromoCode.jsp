@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Invalid promo code</title>
+<title><spring:message code="invalidPromoCode.title" /></title>
 </head>
 <body>
     <section>
@@ -19,7 +19,7 @@
     <section>
         <div class="jumbotron">
             <div class="container">
-                <h1 class="alert alert-danger">Invalid promo code</h1>
+                <h1 class="alert alert-danger"><spring:message code="invalidPromoCode.alert" /></h1>
             </div>
         </div>
     </section>
@@ -27,7 +27,7 @@
         <div class="container">
             <p>
                 <a href="<spring:url value="/market/products" />" class="btn btn-primary"> <span
-                    class="glyphicon-hand-left glyphicon"> </span> products
+                    class="glyphicon-hand-left glyphicon"> </span> <spring:message code="invalidPromoCode.products" />
                 </a>
             </p>
         </div>
